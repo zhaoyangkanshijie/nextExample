@@ -1,101 +1,65 @@
-import { getJSON } from "../utils/fetcher";
-import data from "../utils/mockData";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import styles from "../styles/home.module.scss";
-import { useEffect, useCallback } from "react";
-import Modal from "../components/modal";
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
-
-export async function getStaticProps() {
-  let data = await getJSON('https://training.tp-link.com.cn/api/values');
-  
-  console.log(data)
-  
-  return {
-    props: {
-      data
-      //data:['a','b','c']
-    }
-  }
-}
-
-export default function Home({data}) {
+export default function Home() {
   return (
-    <div>
-      {data['a']}
-      <Link href="/page">page</Link>
+    <div className={styles.container}>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        </h1>
+
+        <p className={styles.description}>
+          Get started by editing{' '}
+          <code className={styles.code}>pages/index.js</code>
+        </p>
+
+        <div className={styles.grid}>
+          <a href="https://nextjs.org/docs" className={styles.card}>
+            <h3>Documentation &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+
+          <a href="https://nextjs.org/learn" className={styles.card}>
+            <h3>Learn &rarr;</h3>
+            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          </a>
+
+          <a
+            href="https://github.com/vercel/next.js/tree/master/examples"
+            className={styles.card}
+          >
+            <h3>Examples &rarr;</h3>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
+
+          <a
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className={styles.card}
+          >
+            <h3>Deploy &rarr;</h3>
+            <p>
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
+        </div>
+      </main>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{' '}
+          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+        </a>
+      </footer>
     </div>
   )
 }
-
-// export async function getStaticProps() {
-//   let res = await getJSON(
-//     `https://api.gfycat.com/v1/gfycats/trending?count=20`
-//   );
-
-//   res = data;
-
-//   return {
-//     props: {
-//       photos: res.gfycats
-//         .filter((i) => i.nsfw === "0")
-//         .map(({ gfyName, width, height }) => ({ id: gfyName, width, height })),
-//     },
-//     revalidate: true,
-//   };
-// }
-
-// export default function Home({ photos }) {
-//   const router = useRouter();
-//   const { photoId } = router.query;
-
-//   const onDismiss = useCallback(() => {
-//     if (photoId) router.back();
-//   }, [photoId, router]);
-
-//   const onKeyDown = useCallback(
-//     (e) => {
-//       if (e.key === "Escape") onDismiss();
-//     },
-//     [onDismiss]
-//   );
-
-//   useEffect(() => {
-//     document.addEventListener("keydown", onKeyDown);
-//     return () => document.removeEventListener("keydown", onKeyDown);
-//   }, [onKeyDown]);
-
-//   return (
-//     <main className={styles.container}>
-//       <div>
-//         <h1>NextGram</h1>
-//       </div>
-//       {photoId && <Modal id={photoId} onDismiss={onDismiss} />}
-//       <div className={styles.images}>
-//         {photos.map(({ id, width, height }) => (
-//           <div key={id} className={styles.imageContainer}>
-//             <div key={id} className={styles.image}>
-//               <Link
-//                 href={{ pathname: "/", query: { photoId: id } }}
-//                 as={`/p/${encodeURI(id)}`}
-//                 shallow
-//                 scroll={false}
-//               >
-//                 <a>
-//                   <div className={styles.imageWrapper}>
-//                     <img
-//                       width={width}
-//                       height={height}
-//                       src={`https://thumbs.gfycat.com/${id}-mobile.jpg`}
-//                     />
-//                   </div>
-//                 </a>
-//               </Link>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </main>
-//   );
-// }
