@@ -37,3 +37,40 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## next文档
 
 https://www.nextjs.cn/docs/getting-started
+
+## 路由
+
+Next.js 支持具有动态路由的 pages
+
+如果你创建了一个命名为 pages/posts/[id].js 的文件，那么就可以通过 posts/1、posts/2 等类似的路径进行访问。
+
+## 渲染
+
+Next.js 具有两种形式的预渲染： 静态生成（Static Generation） 和 服务器端渲染（Server-side Rendering）。
+
+静态生成 （推荐）：HTML 在 构建时 生成，并在每次页面请求（request）时重用。
+
+服务器端渲染：在 每次页面请求（request）时 重新生成 HTML。
+
+Next.js 允许为每个页面 选择 预渲染的方式。你可以创建一个 “混合渲染” 的 Next.js 应用程序：对大多数页面使用“静态生成”，同时对其它页面使用“服务器端渲染”。
+
+出于性能考虑，相对服务器端渲染，我们更 推荐 使用 静态生成 。
+
+nextjs 提供的四个类似于生命周期的静态方法
+
+https://juejin.cn/post/6844904165630541837
+
+## sass
+
+npm install sass
+
+next.config.js
+```js
+const path = require('path')
+
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
+}
+```
