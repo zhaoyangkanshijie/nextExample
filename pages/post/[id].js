@@ -1,7 +1,14 @@
+import { useRouter } from 'next/router'
+
 function Post(props) {
+    const router = useRouter()
+    const { id } = router.query
     // Render post...
     return (
-        <div>{JSON.stringify(props)}</div>
+        <>
+            <div>{id}</div>
+            <div onClick={() => router.push('/')}>{JSON.stringify(props)}</div>
+        </>
     );
 }
 

@@ -7,8 +7,14 @@ class Page extends React.Component {
     return { stars: json.stargazers_count }
   }
 
+  componentDidMount() {
+    
+  }
+
   render() {
-    return <div>Next stars: {this.props.stars}</div>
+    return (
+      <div>Next stars: {this.props.stars}</div>
+    )
   }
 }
 

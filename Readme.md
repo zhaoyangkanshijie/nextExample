@@ -74,3 +74,15 @@ module.exports = {
   },
 }
 ```
+
+## nextjs集成redux
+
+https://blog.csdn.net/qq_40566547/article/details/102251468
+
+## typescript
+
+https://www.nextjs.cn/docs/basic-features/typescript
+
+## 加载环境变量
+
+https://www.nextjs.cn/docs/basic-features/environment-variables
