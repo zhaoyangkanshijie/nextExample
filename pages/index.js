@@ -1,5 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+const DynamicComponentWithCustomLoading = dynamic(
+  () => import('./page'),
+  { 
+    loading: () => <p>aaaa</p>,
+    ssr: false
+  }
+)
 
 class Index extends React.Component {
   constructor(props) {
@@ -37,6 +46,7 @@ class Index extends React.Component {
     console.log("0. render",this.state);
     return (
       <>
+        <DynamicComponentWithCustomLoading />
         <ul>
           <li>state: {this.state.count}</li>
           <li>props: {this.state.count}</li>
