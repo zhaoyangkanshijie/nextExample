@@ -1,4 +1,5 @@
 import '../styles/globals.scss'
+import 'antd/dist/antd.min.css'
 
 export function reportWebVitals(metric) {
   console.log(metric)

@@ -40,9 +40,19 @@ https://www.nextjs.cn/docs/getting-started
 
 ## 路由
 
+https://www.nextjs.cn/docs/routing/introduction
+
 Next.js 支持具有动态路由的 pages
 
 如果你创建了一个命名为 pages/posts/[id].js 的文件，那么就可以通过 posts/1、posts/2 等类似的路径进行访问。
+
+pages/blog/[slug].js → /blog/:slug (/blog/hello-world)
+pages/[username]/settings.js → /:username/settings (/foo/settings)
+pages/post/[...all].js → /post/* (/post/2020/id/title)
+
+## next.js、nuxt.js等服务端渲染框架构建的项目部署到服务器，并用PM2守护程序
+
+https://segmentfault.com/a/1190000012774650
 
 ## 渲染
 
@@ -86,16 +96,4 @@ https://www.nextjs.cn/docs/basic-features/typescript
 ## 加载环境变量
 
 https://www.nextjs.cn/docs/basic-features/environment-variables
-
-## 路由
-
-https://www.nextjs.cn/docs/routing/introduction
-
-pages/blog/[slug].js → /blog/:slug (/blog/hello-world)
-pages/[username]/settings.js → /:username/settings (/foo/settings)
-pages/post/[...all].js → /post/* (/post/2020/id/title)
-
-## next.js、nuxt.js等服务端渲染框架构建的项目部署到服务器，并用PM2守护程序
-
-https://segmentfault.com/a/1190000012774650
 
